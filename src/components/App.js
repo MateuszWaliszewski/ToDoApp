@@ -18,14 +18,20 @@ class App extends Component {
     ]
   };
 
+  addTask = (text, piority, date) => {
+    return true;
+  };
+
   render() {
     const activeTasks = [...this.state.tasks].filter(task => task.active);
     const doneTasks = [...this.state.tasks].filter(task => !task.active);
 
     return (
       <div className="App">
-        <InputAddTask />
+        <InputAddTask addTask={this.addTask} />
+        <hr />
         <ActiveTasksList tasks={activeTasks} />
+        <hr />
         <DoneTasksList tasks={doneTasks} />
       </div>
     );
